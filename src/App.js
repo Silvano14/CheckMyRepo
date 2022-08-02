@@ -1,25 +1,33 @@
-import logo from './logo.svg';
+import React from 'react';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
+import { Home } from './components/Home';
+import { Repository } from './components/repository';
+import { User } from './components/user';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export const paths = {
+  home: '/',
+  repository: 'repository',
+  user: 'user',
 }
 
-export default App;
+export const Navigation = React.createContext({ currentView: paths.home, values: { user: '', repository: '' } })
+
+export default function App() {
+
+  return (
+    <BrowserRouter>
+      <div style={{ padding: '20px' }}>
+        <Navigation.Provider value={{ currentView: paths.home }}>
+
+          <Routes>
+            <Route path={paths.home} element={<Home />} />
+            <Route path={paths.repository} element={<Repository />} />
+            <Route path={paths.user} element={<User />} />
+          </Routes>
+        </Navigation.Provider>
+      </div>
+    </BrowserRouter >
+
+  );
+}
