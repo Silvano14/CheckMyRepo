@@ -1,8 +1,8 @@
 import { fontFamily, spaceAround } from "./commonStyle"
 
-export const NextButton = ({ children }) => {
-
-    return <button
+export const NextButton = ({ children, onClick = () => { } }) =>
+    <button
+        onClick={onClick}
         style={{
             position: 'fixed',
             bottom: spaceAround,
@@ -16,4 +16,3 @@ export const NextButton = ({ children }) => {
     >
         {children}
     </button>
-}

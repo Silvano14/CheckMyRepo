@@ -8,7 +8,15 @@ export const Header = ({ label = '' }) => {
 
     return (
         <div style={{ display: 'flex', alignItems: 'center', paddingBottom: '30px' }}>
-            <img width={'10px'} height={'10px'} onClick={() => navigate(paths.home)} style={{ paddingRight: '20px' }} src={BackArrow} alt="back" />
+            <img
+                width={'13px'}
+                height={'13px'}
+                onClick={() =>
+                    navigate(`../${paths.home}`, { replace: true })}
+                style={{ paddingRight: '20px' }}
+                src={BackArrow}
+                alt="back"
+            />
             <label style={{ fontWeight: 'bold' }}>{label}</label>
         </div>
     )
