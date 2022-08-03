@@ -29,7 +29,6 @@ const config = {
     method: "post",
 };
 
-
 const sendData = (
     navigate,
     data = "repoUrl: 'https://github.com/Silvano14/CheckMyRepo', sender: 'Silvano14'",
