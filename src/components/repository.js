@@ -1,9 +1,9 @@
 import React, { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { DataStore, paths } from '../App';
-import { Header } from './shared/Header';
 import { checkData } from './shared/checkData';
 import { spaceAround } from './shared/commonStyle';
+import { Header } from './shared/Header';
 import { Input } from './shared/Input';
 import { NextButton } from './shared/NextButton';
 
@@ -16,14 +16,16 @@ export const Repository = () => {
             <Header label={paths.repository.toUpperCase()} />
             <Input
                 placeholderInput={'Type your repository name'}
-                onChange={(val) => repository.setRepository(val)}
+                onChange={(val) => {
+                    repository.setRepository(val)
+                }}
                 value={repository.value}
             />
             <NextButton
                 onClick={() => checkData(
-                    repository.value,
+                    { repository, user },
                     navigate,
-                    user.value ? paths.sender : paths.user,
+                    paths.sender,
                     true
                 )}
             >

@@ -13,6 +13,7 @@ export const Input = ({
             <input
                 style={{ width: '100%', outline: 0, border: 0, borderBottom: '3px solid black' }}
                 value={_value}
+                autoFocus
                 onChange={(e) => onChange(e.target.value)}
                 placeholder={placeholderInput}
             />

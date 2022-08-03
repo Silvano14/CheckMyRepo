@@ -7,7 +7,7 @@ import { Informations } from '../shared/Informations';
 export const BadData = () => {
     const navigate = useNavigate()
 
-    const labelStyle = { fontSize: '25px', ...fontFamily };
+    const labelStyle = { fontSize: '30px', ...fontFamily };
     return (
         <div style={{ height: '100%', padding: spaceAround, backgroundColor: '#fca9b7' }}>
             <Informations

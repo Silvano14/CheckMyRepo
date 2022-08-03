@@ -1,6 +1,7 @@
 import { useContext } from "react"
 import { useNavigate } from "react-router-dom"
 import { DataStore, paths } from "../App"
+import { fontSize } from "./shared/commonStyle"
 import { NextButton } from "./shared/NextButton"
 
 export const Done = () => {
@@ -8,7 +9,7 @@ export const Done = () => {
     const { user, repository } = useContext(DataStore)
 
     return <>
-        <h1 style={{ margin: 0, textAlign: 'center', fontSize: '45px', paddingTop: '100px' }}>
+        <h1 style={{ margin: 0, textAlign: 'center', ...fontSize, paddingTop: '100px' }}>
             All done! <br /> Repository sent.
         </h1>
         <NextButton onClick={() => {

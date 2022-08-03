@@ -8,7 +8,7 @@ import { Input } from "./shared/Input"
 import { NextButton } from "./shared/NextButton"
 
 export const User = () => {
-    const { user, repository } = useContext(DataStore)
+    const { user } = useContext(DataStore)
     const navigate = useNavigate()
 
     return (
@@ -21,7 +21,7 @@ export const User = () => {
                 spaceFrame={true}
             />
             <NextButton
-                onClick={() => checkData(user.value, navigate, repository.value ? paths.sender : paths.repository)}
+                onClick={() => checkData(user.value, navigate, paths.repository)}
             >
                 DONE
             </NextButton>

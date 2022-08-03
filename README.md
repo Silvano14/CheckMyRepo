@@ -1,6 +1,6 @@
 # CheckMyRepo
 
-A web/mobile interface to send a link and username to a [Telegram](https://web.telegram.org) channel
+A web/mobile interface to send a respository link and username to a [Telegram](https://web.telegram.org) channel
 
 ## Prerequisites
 

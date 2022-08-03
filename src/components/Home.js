@@ -8,7 +8,7 @@ export const Home = () => {
 
     return <Informations
         firstText={paths.user}
-        secondText={paths.repository}
+        secondText={'repo'}
         buttonText={'CHECK'}
         onClickButton={() => navigate(`../${paths.user}`, { replace: true })}
         spaceFrame={true}

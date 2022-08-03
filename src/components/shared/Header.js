@@ -11,13 +11,12 @@ export const Header = ({ label = '' }) => {
             <img
                 width={'13px'}
                 height={'13px'}
-                onClick={() =>
-                    navigate(`../${paths.home}`, { replace: true })}
-                style={{ paddingRight: '20px' }}
+                onClick={() => navigate(`../${paths.home}`, { replace: true })}
+                style={{ paddingRight: '20px', cursor: 'pointer' }}
                 src={BackArrow}
                 alt="back"
             />
-            <label style={{ fontWeight: 'bold' }}>{label}</label>
+            <label style={{ fontWeight: 'bold', fontSize: '30px' }}>{label}</label>
         </div>
     )
 }

@@ -14,7 +14,7 @@ export const BadConnection = () => {
                 secondText='rightRepo'
                 onClickButton={() => navigate(`../${paths.home}`, { replace: true })}
             />
-            <label style={{ fontSize: '20px', ...fontFamily }}>Check your
+            <label style={{ fontSize: '30px', ...fontFamily }}>Check your
                 <strong> internet connection</strong>
             </label>
         </div>

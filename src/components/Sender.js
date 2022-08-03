@@ -17,7 +17,7 @@ export const Sender = () => {
                 buttonText='SEND'
                 onClickButton={() => sendData(
                     navigate,
-                    `repoUrl: ${repository.value}, sender: ${user.value}`
+                    `repoUrl: https://github.com/${user.value}/${repository.value}, sender: ${user.value}`
                 )}
             />
         </div>
@@ -32,15 +32,14 @@ const config = {
 
 const sendData = (
     navigate,
-    data = "{ repoUrl: 'https://github.com/Silvano14/CheckMyRepo', sender: 'Silvano14' }"
+    data = "repoUrl: 'https://github.com/Silvano14/CheckMyRepo', sender: 'Silvano14'",
 ) =>
     axios({ ...config, data })
         .then((result) => {
             // You can get fake response, just to be sure I check the body
-            if (result.data !== 'OK') {
+            if (result.data !== 'OK')
                 navigate(`../${paths.badConnection}`, { replace: true })
-                return
-            }
-            navigate(`../${paths.done}`, { replace: true })
+            else
+                navigate(`../${paths.done}`, { replace: true })
         })
         .catch(() => navigate(`../${paths.badConnection}`, { replace: true }))

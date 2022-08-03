@@ -1,3 +1,4 @@
+import axios from "axios"
 import { paths } from "../../App"
 
 export const checkData = (
@@ -7,25 +8,26 @@ export const checkData = (
     isRepository = false,
 ) => {
     if (isRepository) {
-        if (!isValidHttpUrl(value)) {
+        const { repository, user } = value
+        if (repository.value && user.value)
+            axios
+                .get(`https://github.com/${user.value}/${repository.value}`)
+                .then(() => navigate(`../${targetNavigator}`, { replace: true }))
+                .catch((e) => {
+                    if (e.response.status === 404)
+                        navigate(`../${paths.badData}`, { replace: true })
+                    else
+                        navigate(`../${paths.badConnection}`, { replace: true })
+                })
+        else
             navigate(`../${paths.badData}`, { replace: true })
-            return
-        }
-    } else if (!value) {
+        return
+    }
+
+    if (!value) {
         navigate(`../${paths.badData}`, { replace: true })
         return
     }
+
     navigate(`../${targetNavigator}`, { replace: true })
-}
-
-function isValidHttpUrl(string) {
-    let url;
-
-    try {
-        url = new URL(string);
-    } catch (_) {
-        return false;
-    }
-
-    return url.protocol === "http:" || url.protocol === "https:";
 }
