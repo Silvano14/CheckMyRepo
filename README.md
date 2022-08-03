@@ -19,4 +19,3 @@ yarn start
 ## Authors
 
 [Silvano Norberti](https://github.com/Silvano14)  
-See also the list of contributors who participated in this project.
