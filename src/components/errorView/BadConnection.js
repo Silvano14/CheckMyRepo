@@ -8,13 +8,13 @@ export const BadConnection = () => {
     const navigate = useNavigate()
 
     return (
-        <div style={{ height: '100%', padding: spaceAround, backgroundColor: 'pink' }}>
+        <div style={{ height: '100%', padding: spaceAround, backgroundColor: '#fca9b7' }}>
             <Informations
                 firstText='rightUser'
                 secondText='rightRepo'
                 onClickButton={() => navigate(`../${paths.home}`, { replace: true })}
             />
-            <label style={{ fontSize: '25px', ...fontFamily }}>Check your
+            <label style={{ fontSize: '20px', ...fontFamily }}>Check your
                 <strong> internet connection</strong>
             </label>
         </div>

@@ -17,7 +17,7 @@ export const Sender = () => {
                 buttonText='SEND'
                 onClickButton={() => sendData(
                     navigate,
-                    `{ repoUrl: ${repository.value}, sender: ${user.value} }`
+                    `repoUrl: ${repository.value}, sender: ${user.value}`
                 )}
             />
         </div>
@@ -27,7 +27,6 @@ export const Sender = () => {
 const config = {
     url: 'https://pushmore.io/webhook/TkF1Y6Am5zz4vt3kVmwpxHjN',
     method: "post",
-    data: "{ repoUrl: 'https://github.com/Silvano14/CheckMyRepo', sender: 'Silvano14' }"
 };
 
 
@@ -44,5 +43,4 @@ const sendData = (
             }
             navigate(`../${paths.done}`, { replace: true })
         })
-        .catch(() => navigate(`../${paths.badConnection}`, { replace: true })
-        )
+        .catch(() => navigate(`../${paths.badConnection}`, { replace: true }))

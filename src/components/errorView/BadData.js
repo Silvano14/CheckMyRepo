@@ -9,7 +9,7 @@ export const BadData = () => {
 
     const labelStyle = { fontSize: '25px', ...fontFamily };
     return (
-        <div style={{ height: '100%', padding: spaceAround, backgroundColor: 'pink' }}>
+        <div style={{ height: '100%', padding: spaceAround, backgroundColor: '#fca9b7' }}>
             <Informations
                 firstText='badUser'
                 secondText='orBadRepo'

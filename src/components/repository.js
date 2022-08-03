@@ -20,7 +20,12 @@ export const Repository = () => {
                 value={repository.value}
             />
             <NextButton
-                onClick={() => checkData(repository.value, navigate, user.value ? paths.sender : paths.user)}
+                onClick={() => checkData(
+                    repository.value,
+                    navigate,
+                    user.value ? paths.sender : paths.user,
+                    true
+                )}
             >
                 DONE
             </NextButton>
