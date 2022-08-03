@@ -7,7 +7,6 @@ import { Informations } from '../shared/Informations';
 export const BadData = () => {
     const navigate = useNavigate()
 
-    const labelStyle = { fontSize: '30px', ...fontFamily };
     return (
         <div style={{ height: '100%', padding: spaceAround, backgroundColor: '#fca9b7' }}>
             <Informations
@@ -15,7 +14,7 @@ export const BadData = () => {
                 secondText='orBadRepo'
                 onClickButton={() => navigate(`../${paths.home}`, { replace: true })}
             />
-            <label style={labelStyle}>
+            <label style={{ fontSize: '30px', ...fontFamily }}>
                 Check your <strong>username</strong> <br /> or your <strong>repository</strong> name
             </label>
         </div >
