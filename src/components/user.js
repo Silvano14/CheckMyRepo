@@ -1,7 +1,7 @@
 import { useContext } from "react"
 import { useNavigate } from "react-router-dom"
 import { DataStore, paths } from "../App"
-import { Header } from "./Header"
+import { Header } from "./shared/Header"
 import { checkData } from "./shared/checkData"
 import { spaceAround } from "./shared/commonStyle"
 import { Input } from "./shared/Input"

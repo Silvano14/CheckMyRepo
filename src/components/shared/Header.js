@@ -1,7 +1,7 @@
 import React from 'react';
-import BackArrow from '../assets/backArrow.png'
+import BackArrow from '../../assets/backArrow.png'
 import { useNavigate } from "react-router-dom";
-import { paths } from '../App';
+import { paths } from '../../App';
 
 export const Header = ({ label = '' }) => {
     const navigate = useNavigate()

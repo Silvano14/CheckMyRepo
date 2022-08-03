@@ -7,6 +7,7 @@ import { Informations } from '../shared/Informations';
 export const BadData = () => {
     const navigate = useNavigate()
 
+    const labelStyle = { fontSize: '25px', ...fontFamily };
     return (
         <div style={{ height: '100%', padding: spaceAround, backgroundColor: 'pink' }}>
             <Informations
@@ -14,7 +15,9 @@ export const BadData = () => {
                 secondText='orBadRepo'
                 onClickButton={() => navigate(`../${paths.home}`, { replace: true })}
             />
-            <label style={{ fontSize: '30px', ...fontFamily }}>Check your <strong>username</strong> or your <strong>repository</strong> name</label>
-        </div>
+            <label style={labelStyle}>
+                Check your <strong>username</strong> <br /> or your <strong>repository</strong> name
+            </label>
+        </div >
     )
 }
