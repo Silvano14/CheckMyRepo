@@ -1,36 +1,26 @@
-import React, { useContext } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { DataStore, paths } from '../App';
-import { checkData } from './shared/checkData';
-import { spaceAround } from './shared/commonStyle';
-import { Header } from './shared/Header';
-import { Input } from './shared/Input';
-import { NextButton } from './shared/NextButton';
+import React, { useContext } from "react";
+import { DataStore, paths } from "../App";
+import { Header } from "./shared/Header";
+import { Input } from "./shared/Input";
+import styles from "./user.module.css";
 
 export const Repository = () => {
-    const { repository, user } = useContext(DataStore)
-    const navigate = useNavigate()
+  const { repository } = useContext(DataStore);
 
-    return (
-        <div style={{ padding: spaceAround }}>
-            <Header label={paths.repository.toUpperCase()} />
-            <Input
-                placeholderInput={'Type your repository name'}
-                onChange={(val) => {
-                    repository.setRepository(val)
-                }}
-                value={repository.value}
-            />
-            <NextButton
-                onClick={() => checkData(
-                    { repository, user },
-                    navigate,
-                    paths.sender,
-                    true
-                )}
-            >
-                DONE
-            </NextButton>
-        </div>
-    )
-}
+  return (
+    <div className={styles.container}>
+      <Header
+        label={"Repository"}
+        backPath={paths.user}
+        forwardPath={paths.sender}
+      />
+      <Input
+        placeholder={"Scrivi il nome del repo di GitHub"}
+        onChange={(val) => {
+          repository.setRepository(val);
+        }}
+        value={repository.value}
+      />
+    </div>
+  );
+};

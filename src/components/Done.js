@@ -1,26 +1,17 @@
-import { useContext } from "react"
-import { useNavigate } from "react-router-dom"
-import { DataStore, paths } from "../App"
-import { fontSize } from "./shared/commonStyle"
-import { NextButton } from "./shared/NextButton"
+import { Button } from "@chakra-ui/react";
+import styles from "./done.module.css";
+import { useNavigate } from "react-router-dom";
+import { paths } from "../App";
 
 export const Done = () => {
-    const navigate = useNavigate()
-    const { user, repository } = useContext(DataStore)
+  const navigate = useNavigate();
 
-    return <>
-        <h1 style={{ margin: 0, textAlign: 'center', ...fontSize, paddingTop: '100px' }}>
-            All done! <br /> Repository sent.
-        </h1>
-        <NextButton onClick={() => {
-            //Cleaning data after sending
-            user.setUser('');
-            repository.setRepository('');
-
-            navigate(`../${paths.home}`, { replace: true });
-        }}
-        >
-            COOL
-        </NextButton>
-    </>
-}
+  return (
+    <div className={styles.container}>
+      <h1 className={styles.title}>Repository mandato!</h1>
+      <Button colorScheme="blue" onClick={() => navigate(paths.home)}>
+        Home
+      </Button>
+    </div>
+  );
+};

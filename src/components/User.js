@@ -1,30 +1,25 @@
-import { useContext } from "react"
-import { useNavigate } from "react-router-dom"
-import { DataStore, paths } from "../App"
-import { Header } from "./shared/Header"
-import { checkData } from "./shared/checkData"
-import { spaceAround } from "./shared/commonStyle"
-import { Input } from "./shared/Input"
-import { NextButton } from "./shared/NextButton"
+import { useContext } from "react";
+import { DataStore, paths } from "../App";
+import { Header } from "./shared/Header";
+import { Input } from "./shared/Input";
+import styles from "./user.module.css";
 
 export const User = () => {
-    const { user } = useContext(DataStore)
-    const navigate = useNavigate()
+  const { user } = useContext(DataStore);
 
-    return (
-        <div style={{ padding: spaceAround }}>
-            <Header label={paths.user.toUpperCase()} />
-            <Input
-                placeholderInput={'Type your github username'}
-                onChange={(val) => user.setUser(val)}
-                value={user.value}
-                spaceFrame={true}
-            />
-            <NextButton
-                onClick={() => checkData(user.value, navigate, paths.repository)}
-            >
-                DONE
-            </NextButton>
-        </div>
-    )
-}
+  return (
+    <div className={styles.container}>
+      <Header
+        label={"Username"}
+        backPath={paths.home}
+        forwardPath={paths.repository}
+      />
+      <Input
+        placeholder={"Scrivi lo username di GitHub"}
+        onChange={(val) => user.setUser(val)}
+        value={user.value}
+        spaceFrame={true}
+      />
+    </div>
+  );
+};

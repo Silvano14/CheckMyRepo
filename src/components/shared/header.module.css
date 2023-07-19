@@ -1,0 +1,13 @@
+.container {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+}
+
+.title {
+  font-family: "Nunito";
+  font-size: 40px;
+  font-weight: 700;
+}

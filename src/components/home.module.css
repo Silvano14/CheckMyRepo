@@ -4,6 +4,7 @@
   align-items: center;
   justify-content: center;
   gap: 15px;
+  min-height: 100vh;
 }
 
 .title,
@@ -20,4 +21,5 @@
 
 .text {
   font-size: 40px;
+  text-align: center;
 }

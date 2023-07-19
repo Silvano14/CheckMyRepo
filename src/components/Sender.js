@@ -2,50 +2,66 @@ import axios from "axios";
 import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { DataStore, paths } from "../App";
-import { spaceAround } from "./shared/commonStyle";
-import { Informations } from "./shared/Informations";
-
+import styles from "./sender.module.css";
+import { Header } from "./shared/Header";
+import { Button } from "@chakra-ui/react";
 export const Sender = () => {
   const navigate = useNavigate();
   const { user, repository } = useContext(DataStore);
 
   return (
-    <div
-      style={{
-        height: "100%",
-        padding: spaceAround,
-        backgroundColor: "#b3f9a9",
-      }}
-    >
-      <Informations
-        firstText="rightUser"
-        secondText="rightRepo"
-        buttonText="SEND"
-        onClickButton={() =>
+    <div className={styles.container}>
+      <Header
+        label="Controllo dati inseriti"
+        backPath={paths.repository}
+        forwardPath={paths.done}
+        showForwardButton={false}
+      />
+      <div>
+        <div style={{ display: "flex", flexDirection: "column" }}>
+          <div className={styles.div} to={`/${paths.user}`}>
+            /<p className={styles.p}>{user.value}</p>
+          </div>
+
+          <div className={styles.div} to={`/${paths.repository}`}>
+            /<p className={styles.p}>{repository.value}</p>
+          </div>
+        </div>
+      </div>
+      <Button
+        colorScheme="orange"
+        onClick={() =>
           sendData(
             navigate,
             `repoUrl: https://github.com/${user.value}/${repository.value}, sender: ${user.value}`
           )
         }
-      />
+      >
+        Invia!
+      </Button>
     </div>
   );
 };
 
 const config = {
   url: "https://pushmore.io/webhook/TkF1Y6Am5zz4vt3kVmwpxHjN",
-  method: "post",
+  method: "POST",
+  mode: "no-cors",
+  headers: {
+    "Access-Control-Allow-Origin": "*",
+    "Content-Type": "application/json",
+  },
+  credentials: "same-origin",
 };
 
 const sendData = (
   navigate,
   data = "repoUrl: 'https://github.com/Silvano14/CheckMyRepo', sender: 'Silvano14'"
 ) =>
-  axios({ ...config, data })
+  axios
+    .post(config.url, data)
     .then((result) => {
-      // You can get fake response, just to be sure I check the body
-      if (result.data !== "OK")
-        navigate(`../${paths.badConnection}`, { replace: true });
-      else navigate(`../${paths.done}`, { replace: true });
+      if (result.status === 200)
+        navigate(`../${paths.done}`, { replace: true });
     })
-    .catch(() => navigate(`../${paths.badConnection}`, { replace: true }));
+    .catch((err) => console.log(err));
