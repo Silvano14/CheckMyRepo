@@ -1,0 +1,31 @@
+Ciao, grazie per esserti interessato alla nostra realtà.
+
+Quello che ti chiedo è di creare un’app React, in Typescript, con il nome "CheckMyRepo".
+
+✨ La funzionalità principale dell'app è inviare il link di un repository GitHub al mio Telegram, utilizzando la api https://pushmore.io/.
+
+🎨 In allegato è presente come ci si aspetta l'interfaccia grafica, il font utilizzato è: https://fonts.google.com/specimen/Nunito
+
+📝 La struttura dell'api da utilizzare è la seguente:
+
+    [POST] https://pushmore.io/webhook/TkF1Y6Am5zz4vt3kVmwpxHjN
+    Body params: repoUrl=yourRepoUrl, sender=yourName
+
+
+Una volta effettuata la chiamata, se il body della response sarà OK, allora il messaggio sarà stato recapitato correttamente.
+
+Se vuoi testare il servizio puoi creare un endpoint di test da qui: https://pushmore.io/
+
+🐎 Quando l'app sarà completa, allora usala per inviarmi la repository del progetto
+
+Se vuoi chiedermi qualcosa, scrivi pure all'indirizzo silvano.norberti@btinkeeng.com
+Fammi sapere entro quando conti di completare il test.
+
+🎉 Punti Bonus: 
+- Intraprendenza nel migliorare l'esperienza utente
+- Unit test 
+- Dockerfile 
+
+Quando riceverò il link alla repository guarderò il codice e se supererà gli standard minimi, allora organizzeremo una chiamata tecnica in cui analizzeremo il codice scritto con domande e approfondimenti.
+
+A presto e buon lavoro!
